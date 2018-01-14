@@ -82,6 +82,14 @@ git clone https://github.com/p3rsephone/macOS.git ~/.macOS && ~/.macOS/install
 
 #  
 
+6. Some **Vim Packages** and a dope package manager([Pathogen])!...
+
+    - [Git Gutter]
+    - [Vim Airline]
+    - [Airline Themes]
+
+#    
+
 <!-- Terminal -->
 [Z-Shell]: http://www.zsh.org/
 [iTerm2]: https://github.com/gnachman/iTerm2
@@ -134,3 +142,9 @@ git clone https://github.com/p3rsephone/macOS.git ~/.macOS && ~/.macOS/install
 [Sort Lines]: https://atom.io/packages/sort-lines
 [Todo Show]: https://atom.io/packages/todo-show
 [Tool Bar]: https://atom.io/packages/tool-bar
+
+<!-- Vim -->
+[Pathogen]: https://github.com/tpope/vim-pathogen
+[Git Gutter]: https://github.com/airblade/vim-gitgutter
+[Vim Airline]: https://github.com/vim-airline/vim-airline
+[Airline Themes]: https://github.com/vim-airline/vim-airline-themes

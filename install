@@ -587,6 +587,20 @@ run ln -sfv $cwd/.gitconfig ~
 run ln -sfv $cwd/.tmux.conf ~
 run cp -rf $cwd/.Scripts ~
 
+step "Vim preferences\n"
+run mkdir -pv ~/.vim/syntax
+run ln -sfv $cwd/vim/c.vim ~/.vim/syntax
+run mkdir -pv ~/.vim/colors
+run ln -sfv $cwd/vim/dracula.vim ~/.vim/colors
+
+step "Vim packages\n"
+run '(mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim)'
+run '(git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline)'
+run '(git clone https://github.com/airblade/vim-gitgutter ~/.vim/bundle/vim-gitgutter)'
+run '(git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes)'
+run ln -sfv $cwd/.vimrc ~
+
 step "Atom preferences\n"
 run mkdir -pv ~/.atom
 run ln -sfv $cwd/.atom/config.cson ~/.atom
@@ -604,3 +618,5 @@ step "VLC preferences\n"
 run ln -sfv $cwd/org.videolan.vlc ~/Library/Preferences
 
 run killall Dock
+
+chapter "Don't forget to run :Helptags in vim! Also, restart your system.\n"
