@@ -207,15 +207,58 @@ esac
 
 chapter "Adjusting Finder settings"
 
-step "Set Downloads as the default location for new Finder windows? [Y/n]: " ""
+step "Save to disk instead of iCloud? [Y/n]: " ""
 case $(read choice; echo $choice) in
     [nN] )
         echo ""
         ;;
     [yY] | * )
         echo ""
-        run defaults write com.apple.finder NewWindowTarget -string '"PfLo"'
-        run defaults write com.apple.finder NewWindowTargetPath -string "'file://${HOME}/Downloads/'"
+        run defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+        ;;
+esac
+
+step "Show status bar?[Y/n]: " ""
+case $(read choice; echo $choice) in
+    [nN] )
+        echo ""
+        ;;
+    [yY] | * )
+        echo ""
+        run defaults write com.apple.finder ShowStatusBar -bool true
+        ;;
+esac
+
+step "Show tabs? [Y/n]: " ""
+case $(read choice; echo $choice) in
+    [nN] )
+        echo ""
+        ;;
+    [yY] | * )
+        echo ""
+        run defaults write com.apple.finder ShowTabView -bool true
+        ;;
+esac
+
+step "Show path? [Y/n]: " ""
+case $(read choice; echo $choice) in
+    [nN] )
+        echo ""
+        ;;
+    [yY] | * )
+        echo ""
+        run defaults write com.apple.finder ShowPathbar -bool true
+        ;;
+esac
+
+step "Show side bar? [Y/n]: " ""
+case $(read choice; echo $choice) in
+    [nN] )
+        echo ""
+        ;;
+    [yY] | * )
+        echo ""
+        run defaults write com.apple.finder ShowSidebar -bool true
         ;;
 esac
 
@@ -266,14 +309,27 @@ case $(read choice; echo $choice) in
         ;;
 esac
 
-step "Use list view in all Finder windows by default? [Y/n]: " ""
+step "Avoid creating .DS_Store files on network volumes? [Y/n]: " ""
 case $(read choice; echo $choice) in
     [nN] )
         echo ""
         ;;
     [yY] | * )
         echo ""
-        run defaults write com.apple.finder FXPreferredViewStyle -string '"Nlsv"'
+        run defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+        ;;
+esac
+
+step "Enable snap-to-grid for icons on the desktop and in other icon views? [Y/n]: " ""
+case $(read choice; echo $choice) in
+    [nN] )
+        echo ""
+        ;;
+    [yY] | * )
+        echo ""
+        run /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+        run /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+        run /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
         ;;
 esac
 
@@ -310,9 +366,9 @@ case $(read choice; echo $choice) in
         ;;
 esac
 
-chapter "Adjusting Dock, Dashboard, and hot corners"
+chapter "Adjusting Dock, Dashboard, and Hot Corners"
 
-step "Change the icon size (in px) of Dock items? [48/n]: " ""
+step "Change the icon size (in px) of Dock items (Usually 42)? [XX/n]: " ""
 read tilesize
 case $tilesize in
     [nN] )
@@ -320,7 +376,29 @@ case $tilesize in
         ;;
     * )
         echo ""
-        run defaults write com.apple.dock tilesize -int ${tilesize:-48}
+        run defaults write com.apple.dock tilesize -int $tilesize
+        ;;
+esac
+
+step "Minimize effect to scale instead of genie? [Y/n]: " ""
+case $(read choice; echo $choice) in
+    [nN] )
+        echo ""
+        ;;
+    [yY] | * )
+        echo ""
+        run defaults write com.apple.dock mineffect -string '"scale"'
+        ;;
+esac
+
+step "Minimize windows to application? [Y/n]: " ""
+case $(read choice; echo $choice) in
+    [nN] )
+        echo ""
+        ;;
+    [yY] | * )
+        echo ""
+        run defaults write com.apple.dock minimize-to-application -bool true
         ;;
 esac
 
@@ -343,6 +421,28 @@ case $(read choice; echo $choice) in
     [yY] | * )
         echo ""
         run defaults write com.apple.dock showhidden -bool true
+        ;;
+esac
+
+step "Default Hot Corners? [Y/n]: " ""
+case $(read choice; echo $choice) in
+    [nN] )
+        echo ""
+        ;;
+    [yY] | * )
+        echo ""
+        # Top left == ALT Lauchpad
+        run defaults write com.apple.dock wvous-tl-corner -int 11
+        run defaults write com.apple.dock wvous-tl-modifier -int 524288
+        # Top right == ALT Desktop
+        run defaults write com.apple.dock wvous-tr-corner -int 4
+        run defaults write com.apple.dock wvous-tl-modifier -int 524288
+        # Bottom left == ALT Mission Control
+        run defaults write com.apple.dock wvous-bl-corner -int 2
+        run defaults write com.apple.dock wvous-tl-modifier -int 524288
+        # Bottom right == ALT Mission Control
+        run defaults write com.apple.dock wvous-br-corner -int 2
+        run defaults write com.apple.dock wvous-tl-modifier -int 524288
         ;;
 esac
 
@@ -414,15 +514,20 @@ else
 fi
 
 step "CLI apps\n"
-
 for app in $(<$cwd/.stack/cli); do
     if ! brew list -1 | grep -q "^${app}\$"; then
         run brew install $app
     fi
 done
 
-step "Desktop apps\n"
+step "Apple Store apps\n"
+for app in $(<$cwd/.stack/mas); do
+    if ! brew cask list -1 | grep -q "^${app}\$"; then
+        run mas install $app
+    fi
+done
 
+step "Desktop apps\n"
 for app in $(<$cwd/.stack/desktop); do
     if ! brew cask list -1 | grep -q "^${app}\$"; then
         run brew cask install $app
@@ -431,12 +536,18 @@ done
 
 
 step "Fonts\n"
-
 run brew tap caskroom/fonts
-
 for font in $(<$cwd/.stack/fonts); do
     if ! brew cask list -1 | grep -q "^${font}\$"; then
         run brew cask install $font
+    fi
+done
+
+step "QuickLook Helpers\n"
+run brew tap caskroom/fonts
+for ql in $(<$cwd/.stack/quicklook); do
+    if ! brew cask list -1 | grep -q "^${ql}\$"; then
+        run brew cask install $ql
     fi
 done
 
@@ -446,7 +557,6 @@ done
 # run sudo cp -vR $cwd/etc/nginx /etc
 
 step "Atom packages/themes\n"
-
 for package in $(<$cwd/.stack/atom); do
     if [ ! -d ~/.atom/packages/$package ]; then
         run apm install $package
@@ -467,7 +577,6 @@ do
 done
 
 run chsh -s /bin/zsh
-run '(cd ~/.zprezto/modules/prompt/functions && curl -s -O https://raw.githubusercontent.com/chauncey-garrett/zsh-prompt-garrett/master/prompt_garrett_setup)'
 
 chapter "Restoring…"
 
@@ -492,16 +601,4 @@ run defaults write com.googlecode.iterm2 PrefsCustomFolder ~/.iTerm2
 step "VLC preferences\n"
 run ln -sfv $cwd/org.videolan.vlc ~/Library/Preferences
 
-step "Set default wallpaper\n"
-run sqlite3 "~/Library/Application\ Support/Dock/desktoppicture.db" "\"\
-DELETE FROM data; \
-DELETE FROM displays; \
-DELETE FROM pictures; \
-DELETE FROM preferences; \
-DELETE FROM prefs; \
-DELETE FROM spaces; \
-INSERT INTO pictures (space_id, display_id) VALUES (null, null); \
-INSERT INTO data (value) VALUES ('${cwd}/wallpaper.jpg'); \
-INSERT INTO preferences (key, data_id, picture_id) VALUES (1, 1, 1); \
-\""
 run killall Dock
