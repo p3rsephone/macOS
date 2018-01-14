@@ -2,6 +2,6 @@
 	name = Tânia Silva
 	email = tdosilva@gmail.com
 [core]
-	excludesfile = /Volumes/Macintosh HD/tdosilva/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [credential]
 	helper = osxkeychain

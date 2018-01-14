@@ -48,5 +48,9 @@
     displayIgnored: false
     hideDocumentTitle: true
     hideTitleBar: true
+  "tool-bar":
+    position: "Left"
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false

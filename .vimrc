@@ -21,3 +21,4 @@ execute pathogen#infect()
 filetype plugin indent on
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown "md are now markdown
 au BufNewFile,BufFilePre,BufRead *.MD set filetype=markdown "MD are now markdown too
+set backspace=indent,eol,start

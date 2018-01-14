@@ -572,6 +572,8 @@ run ln -sfv $cwd/.zshrc ~
 run ln -sfv $cwd/.zpreztorc ~
 run ln -sfv $cwd/.gitconfig ~
 run ln -sfv $cwd/.tmux.conf ~
+run cp $cwd/.gitignore_global ~
+run git config --global core.excludesfile '~/.gitignore_global'
 run cp -rf $cwd/.Scripts ~
 
 step "Vim preferences\n"

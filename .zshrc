@@ -93,8 +93,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="vim ~/.macOS/.zshrc"
 export EDITOR="vim"
 alias pause="spotify pause"
 alias play="spotify play"
@@ -103,6 +102,8 @@ alias prv="spotify prev"
 alias tn="tmux new"
 alias cat="ccat"
 alias gc="git clone"
+alias showHiddenFiles="defaults write com.apple.finder AppleShowAllFiles true";killall Finder
+alias hideHiddenFiles="defaults write com.apple.finder AppleShowAllFiles false";killall Finder
 alias py="python"
 alias gcmsg="gcm"
 alias mk="gcc-7"

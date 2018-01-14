@@ -8,17 +8,10 @@
     iconset: 'ion'
   },
   {
-    type: 'button'
-    tooltip: 'List projects'
-    dependency: 'git-projects'
-    callback: 'git-projects:toggle'
-    icon: 'file-submodule'
-  },
-  {
     type: 'spacer'
   },
   {
-    type: 'button'
+      type: 'button'
     tooltip: 'Git Control'
     callback: 'github:toggle-git-tab'
     icon: 'mark-github'
@@ -30,20 +23,6 @@
     callback: 'blame:toggle'
     icon: 'hand-o-right'
     iconset: 'fa'
-  },
-  {
-    type: 'button'
-    tooltip: 'Git Log Current File'
-    dependency: 'git-plus'
-    callback: 'git-plus:log-current-file'
-    icon: 'git-commit'
-  },
-  {
-    type: 'button'
-    tooltip: 'Git Log'
-    dependency: 'git-plus'
-    callback: 'git-plus:log'
-    icon: 'versions'
   },
   {
     type: 'spacer'
@@ -76,8 +55,8 @@
     type: 'button'
     tooltip: 'Toggle Sidebar'
     callback: 'tree-view:toggle'
-    icon: 'sitemap'
-    iconset: 'fa'
+    icon: 'chevron-right'
+    iconset: 'ion'
   },
   {
     type: 'spacer'
@@ -115,8 +94,8 @@
   },
   {
     type: 'button'
-    tooltip: 'Toggle Developer Tools'
-    callback: 'window:toggle-dev-tools'
+    tooltip: 'Toggle TODOs'
+    callback: 'todo-show:toggle'
     icon: 'bug'
   },
   {
