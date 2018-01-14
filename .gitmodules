@@ -1,0 +1,3 @@
+[submodule ".Scripts/tmux-powerline"]
+	path = .Scripts/tmux-powerline
+	url = https://github.com/p3rsephone/tmux-powerline
