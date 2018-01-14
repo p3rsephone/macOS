@@ -118,6 +118,7 @@ git clone https://github.com/p3rsephone/macOS.git ~/.macOS && ~/.macOS/install
 
 <!-- Atom packages -->
 [Minimap]: https://atom.io/packages/minimap
+[Blame]: https://atom.io/packages/blame
 [Brackets Glow]: https://atom.io/packages/atom-brackets-glow
 [Bracket Padder]: https://atom.io/packages/bracket-padder
 [Atom IDE]: https://ide.atom.io/
