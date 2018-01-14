@@ -14,7 +14,7 @@ git clone https://github.com/p3rsephone/macOS.git ~/.macOS && ~/.macOS/install
 
 1. A super 🔥 **Terminal**…
 
-    ![iTerm2 Screenshot](https://mzdr.github.io/macos/iTerm2.jpg)  
+    ![iTerm2 Screenshot](/ScreenShots/terminal.png)  
 
     Which is [iTerm2] with
 
