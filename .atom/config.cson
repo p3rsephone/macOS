@@ -17,9 +17,6 @@
     highlightMatchingLineNumber: true
   core:
     closeEmptyWindows: false
-    disabledPackages: [
-      "autocomplete-java"
-    ]
     telemetryConsent: "limited"
     themes: [
       "seti-ui"
@@ -39,6 +36,7 @@
   "ide-java":
     errors:
       incompleteClasspathSeverity: "ignore"
+    javaHome: "/usr/bin/java"
   linter: {}
   "linter-gcc": {}
   "linter-ui-default": {}
