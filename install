@@ -584,6 +584,8 @@ step "Dotfiles\n"
 run ln -sfv $cwd/.zshrc ~
 run ln -sfv $cwd/.zpreztorc ~
 run ln -sfv $cwd/.gitconfig ~
+run ln -sfv $cwd/.tmux.conf ~
+run cp -rf $cwd/.Scripts ~
 
 step "Atom preferences\n"
 run mkdir -pv ~/.atom
