@@ -87,7 +87,7 @@ git clone https://github.com/p3rsephone/macOS.git ~/.macOS && ~/.macOS/install
 [iTerm2]: https://github.com/gnachman/iTerm2
 [Prezto]: https://github.com/sorin-ionescu/prezto
 [Powerline]: https://github.com/powerline/fonts
-[Dracula] : https://draculatheme.com/iterm/
+[Dracula]: https://draculatheme.com/iterm/
 
 <!-- Desktop apps -->
 [1Password]: https://1password.com/
