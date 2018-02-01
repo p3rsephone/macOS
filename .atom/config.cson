@@ -1,25 +1,40 @@
 "*":
   "atom-ide-ui":
-    "atom-ide-code-format": {}
+    "atom-ide-code-format":
+      formatOnSave: true
+      formatOnType: false
     "atom-ide-diagnostics-ui":
       autoVisibility: true
       showDirectoryColumn: true
     use:
       "atom-ide-diagnostics-ui": false
   "atom-material-ui":
-    colors: {}
+    colors:
+      abaseColor: "#7e57c2"
+      accentColor: "#acdd55"
+      genAccent: true
+      predefinedColor: "Purple"
     tabs:
       compactTabs: true
       noTabMinWidth: true
+      stretchedTabs: true
     ui:
+      panelContrast: true
       useAnimations: false
   "bracket-matcher":
     highlightMatchingLineNumber: true
   core:
     closeEmptyWindows: false
+    disabledPackages: [
+      "background-tips"
+      "welcome"
+      "flex-tool-bar"
+      "tool-bar"
+      "github"
+    ]
     telemetryConsent: "limited"
     themes: [
-      "seti-ui"
+      "atom-material-ui"
       "dracula-syntax"
     ]
   editor:
@@ -42,12 +57,14 @@
   "linter-ui-default": {}
   "one-dark-ui": {}
   "seti-ui":
+    compactView: true
     disableAnimations: true
     displayIgnored: false
     hideDocumentTitle: true
     hideTitleBar: true
   "tool-bar":
     position: "Left"
+    useTouchBar: false
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:

@@ -521,6 +521,10 @@ for app in $(<$cwd/.stack/desktop); do
     fi
 done
 
+step "Window Manager\n"
+run brew tap crisidev/homebrew-chunkwm
+run brew install --HEAD --with-tmp-logging chunkwm
+run brew install --HEAD --with-logging  koekeishiya/formulae/skhd
 
 step "Fonts\n"
 run brew tap caskroom/fonts
@@ -572,6 +576,8 @@ run ln -sfv $cwd/.zshrc ~
 run ln -sfv $cwd/.zpreztorc ~
 run ln -sfv $cwd/.gitconfig ~
 run ln -sfv $cwd/.tmux.conf ~
+run ln -sfv $cwd/.skhdrc ~
+run ln -sfv $cwd/.chunkwmrc ~
 run cp $cwd/.gitignore_global ~
 run git config --global core.excludesfile '~/.gitignore_global'
 run cp -rf $cwd/.Scripts ~
@@ -607,5 +613,9 @@ step "VLC preferences\n"
 run ln -sfv $cwd/org.videolan.vlc ~/Library/Preferences
 
 run killall Dock
+
+step "Starting window manager\n"
+run brew services start chunkwm
+run brew services start skhd
 
 chapter "Don't forget to run :Helptags in vim! Also, restart your system.\n"

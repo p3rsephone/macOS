@@ -104,7 +104,7 @@ alias cat="ccat"
 alias gc="git clone"
 alias showHiddenFiles="defaults write com.apple.finder AppleShowAllFiles true";killall Finder
 alias hideHiddenFiles="defaults write com.apple.finder AppleShowAllFiles false";killall Finder
-alias py="python"
+alias py="python3.6"
 alias gcmsg="gcm"
 alias mk="gcc-7"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/Volumes/Macintosh\ HD/Tania\ Silva/.vimpkg/bin:/usr/local/apache-maven-3.5.0/bin:/usr/local/opt/kwm
@@ -127,5 +127,8 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 #MongoDB
 export MONGO_PATH=/usr/local/Cellar/mongodb/3.4.10
 export PATH="$PATH:$MONGO_PATH/bin"
+
+# Node path
+export NODE_PATH='/usr/local/lib/node_modules'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

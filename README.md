@@ -90,6 +90,7 @@ git clone https://github.com/p3rsephone/macOS.git ~/.macOS && ~/.macOS/install
 
 #    
 
+7. A _really cool_ window manager ([Chunkwm]) inspired by i3!!
 <!-- Terminal -->
 [Z-Shell]: http://www.zsh.org/
 [iTerm2]: https://github.com/gnachman/iTerm2
@@ -148,3 +149,6 @@ git clone https://github.com/p3rsephone/macOS.git ~/.macOS && ~/.macOS/install
 [Git Gutter]: https://github.com/airblade/vim-gitgutter
 [Vim Airline]: https://github.com/vim-airline/vim-airline
 [Airline Themes]: https://github.com/vim-airline/vim-airline-themes
+
+<!-- Window manager  -->
+[Chunkwm]: https://github.com/koekeishiya/chunkwm

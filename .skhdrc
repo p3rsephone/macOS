@@ -1,0 +1,39 @@
+# Open applications
+rcmd - return : open -a /Applications/Atom.app
+rcmd - f : open -a /Applications/Firefox.app
+
+# enter fullscreen mode for the focused container
+alt + cmd - f : chunkc tiling::window --toggle fullscreen
+
+# change focus between tiling / floating windows
+shift + alt - space : chunkc tiling::window --toggle float
+
+# change layout of desktop
+alt - e : chunkc tiling::desktop --layout bsp
+alt - s : chunkc tiling::desktop --layout monocle
+
+# change focus
+lcmd - h : chunkc tiling::window --focus west
+lcmd - j : chunkc tiling::window --focus south
+lcmd - k : chunkc tiling::window --focus north
+lcmd - l : chunkc tiling::window --focus east
+
+# move focused window
+alt - h : chunkc tiling::window --warp west
+alt - j : chunkc tiling::window --warp south
+alt - k : chunkc tiling::window --warp north
+alt - l : chunkc tiling::window --warp east
+
+alt - r : chunkc tiling::desktop --rotate 90
+
+# move focused container to workspace
+alt + cmd - 1 : chunkc tiling::window --send-to-desktop 1
+alt + cmd - 2 : chunkc tiling::window --send-to-desktop 2
+alt + cmd - 3 : chunkc tiling::window --send-to-desktop 3
+alt + cmd - 4 : chunkc tiling::window --send-to-desktop 4
+alt + cmd - 5 : chunkc tiling::window --send-to-desktop 5
+alt + cmd - 6 : chunkc tiling::window --send-to-desktop 6
+
+# disable/enable border
+cmd + shift - f : chunkc core::unload border.so
+cmd + shift - r : brew services restart chunkwm
