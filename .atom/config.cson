@@ -1,4 +1,17 @@
 "*":
+  "activate-power-mode":
+    autoToggle: false
+    particles: {}
+    playAudio:
+      audioclip: "../audioclips/typewriter.wav"
+      enabled: true
+    plugins:
+      playAudio: true
+      screenShake: true
+    screenShake: {}
+  "atom-beautify":
+    general:
+      _analyticsUserId: "5e8d8a8b-c0ee-4a27-b89b-509cf2abc65b"
   "atom-ide-ui":
     "atom-ide-code-format":
       formatOnSave: true
@@ -6,8 +19,14 @@
     "atom-ide-diagnostics-ui":
       autoVisibility: true
       showDirectoryColumn: true
+      statusBarPosition: "right"
     use:
-      "atom-ide-diagnostics-ui": false
+      "atom-ide-diagnostics-ui": "never"
+  "atom-latex":
+    clean_after_build: true
+    focus_viewer: true
+    hide_log_if_success: true
+    preview_after_build: "View in PDF viewer tab"
   "atom-material-ui":
     colors:
       abaseColor: "#7e57c2"
@@ -21,6 +40,11 @@
     ui:
       panelContrast: true
       useAnimations: false
+  "atom-package-deps":
+    ignored: [
+      "flex-tool-bar"
+    ]
+  "autocomplete-clang": {}
   "bracket-matcher":
     highlightMatchingLineNumber: true
   core:
@@ -28,8 +52,6 @@
     disabledPackages: [
       "background-tips"
       "welcome"
-      "flex-tool-bar"
-      "tool-bar"
       "github"
     ]
     telemetryConsent: "limited"
@@ -38,12 +60,12 @@
       "dracula-syntax"
     ]
   editor:
+    autoIndent: false
     fontFamily: "anonymice nerd font mono"
     fontSize: 16
     preferredLineLength: 150
     softWrap: true
     softWrapAtPreferredLineLength: true
-    tabLength: 4
     tabType: "soft"
     zoomFontWhenCtrlScrolling: true
   "exception-reporting":
@@ -65,7 +87,6 @@
   "tool-bar":
     position: "Left"
     useTouchBar: false
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   welcome:
     showOnStartup: false

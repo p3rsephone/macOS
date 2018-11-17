@@ -158,6 +158,18 @@ case $(read choice; echo $choice) in
         ;;
 esac
 
+step "Automatically quit printer once job is done? [Y/n]: " ""
+case $(read choice; echo $choice) in
+    [nN] )
+        echo ""
+        ;;
+    [yY] | * )
+        echo ""
+        run defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+        ;;
+esac
+
+
 step "Set a blazingly fast keyboard repeat rate? [Y/n]: " ""
 case $(read choice; echo $choice) in
     [nN] )

@@ -22,3 +22,18 @@ filetype plugin indent on
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown "md are now markdown
 au BufNewFile,BufFilePre,BufRead *.MD set filetype=markdown "MD are now markdown too
 set backspace=indent,eol,start
+
+"NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+"fix for background
+"if &term=~'256 color'
+"  set t_ut=
+"endif
+
+"set t_Co=256
+
+"if has("termguicolors")
+"  set termguicolors
+"endif

@@ -44,7 +44,7 @@ git clone https://github.com/p3rsephone/macOS.git ~/.macOS && ~/.macOS/install
 
 #  
 
-4. 💪 **[Atom]** as the default text editor and a couple of *superb* packages for…
+4. 💪  **[Atom]** as the default text editor and a couple of *superb* packages for…
 
     <p align="center">
         <img src="https://mzdr.github.io/macos/atom.jpg" alt="Screenshot of Atom">

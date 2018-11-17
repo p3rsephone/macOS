@@ -1,6 +1,7 @@
 # Open applications
-rcmd - return : open -a /Applications/Atom.app
+rcmd - return : open -a /Applications/Visual\ Studio\ Code.app
 rcmd - f : open -a /Applications/Firefox.app
+rcmd - u : open -a /Applications/Ulysses.app
 
 # enter fullscreen mode for the focused container
 alt + cmd - f : chunkc tiling::window --toggle fullscreen
