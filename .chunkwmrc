@@ -79,3 +79,7 @@ chunkc tiling::rule --owner \"The Unarchiver\" --state float
 chunkc tiling::rule --owner \"1Password 6\" --state float
 chunkc tiling::rule --owner Calculator --state float
 chunkc tiling::rule --owner \"Cartão de Cidadão\" --state float
+chunkc tiling::rule --owner IINA --state float
+chunkc tiling::rule --owner \"Parallels Desktop\" --state float
+chunkc tiling::rule --owner \"Windows 10\" --state float
+

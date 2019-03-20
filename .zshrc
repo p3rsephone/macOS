@@ -70,7 +70,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-
 # ============================
 # ========== Theme ===========
 # ============================
@@ -86,7 +85,6 @@ POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%F{white}$ "
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history)
-
 
 # ============================
 # ========= Exports ==========
@@ -105,7 +103,6 @@ export PATH="$PATH:$MONGO_PATH/bin"
 
 # Node path
 export NODE_PATH='/usr/local/lib/node_modules'
-
 
 # ============================
 # ========== Alias ===========
@@ -197,3 +194,6 @@ alias cg="cd ~/Google\ Drive/MIEInf/S6/CG/"
 alias pl="cd ~/Google\ Drive/MIEInf/S6/PL/"
 alias basicLinux="ssh persephone@192.168.56.10"
 alias kali="ssh root@192.168.56.102"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:/tdosilva.rvm/bin"
